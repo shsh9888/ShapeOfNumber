@@ -18,7 +18,12 @@ public class MainActivity extends AppCompatActivity {
     public void numberButtonClicked(View view) {
 
         EditText enteredNumber = findViewById(R.id.numberEntered);
-        int number = (int)Double.parseDouble(enteredNumber.getText().toString());
+        int number=0;
+        try {
+            number = (int)Double.parseDouble(enteredNumber.getText().toString());
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Please enter a number", Toast.LENGTH_LONG).show();
+        }
 
         NumberShape numberShape = new NumberShape(number);
         String message ="hi";
